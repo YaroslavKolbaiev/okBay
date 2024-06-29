@@ -1,7 +1,8 @@
-import { itemCacheKey, itemsByViewsKey, itemsByEndingKey } from '$services/keys';
+import { itemCacheKey, itemsByViewsKey, itemsByEndingKey, itemsByPriceKey } from '$services/keys';
 import { client } from '$services/redis';
 import type { CreateItemAttrs } from '$services/types';
 import { genId } from '$services/utils';
+import { itemsByPrice } from './by-price';
 import { deserialize } from './deserialize';
 import { serialize } from './serialize';
 
@@ -63,6 +64,12 @@ export const createItem = async (attrs: CreateItemAttrs) => {
 			value: id,
 			// endingAt is a timestamp, so we need to convert it to milliseconds
 			score: attrs.endingAt.toMillis()
+		}),
+		// when item is created we add it to the itemsByPrice sorted set with initial score of 0
+		// itemsByPrice sorted set stores the items with highest bid price
+		client.zAdd(itemsByPriceKey(), {
+			value: id,
+			score: 0
 		})
 	]);
 
