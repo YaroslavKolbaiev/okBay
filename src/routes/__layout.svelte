@@ -2,10 +2,8 @@
 	import '../app.css';
 	import Footer from '$lib/components/footer.svelte';
 	import Header from '$lib/components/header.svelte';
-	import pkg from 'chart.js';
 	import 'chartjs-adapter-luxon';
-
-	const {
+	import {
 		Chart,
 		ArcElement,
 		LineElement,
@@ -31,7 +29,7 @@
 		Title,
 		Tooltip,
 		SubTitle
-	} = pkg;
+	} from 'chart.js/auto';
 
 	Chart.register(
 		ArcElement,
