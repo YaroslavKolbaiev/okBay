@@ -8,6 +8,11 @@
 	export let highestPrice: Item[] = [];
 </script>
 
+<svelte:head>
+	<title>okBay</title>
+	<meta name="description" content="okBay lets your auction off your unused stuff" />
+</svelte:head>
+
 <h1 class="text-3xl">Most Expensive</h1>
 <Carousel>
 	{#each highestPrice as item}

@@ -14,15 +14,15 @@
 	}
 </script>
 
-<div class="w-full p-2 bg-white shadow-xs bg-amber-500 mb-8">
+<div class="w-full p-4 bg-white shadow-xs bg-sky-500 mb-8">
 	<div class="container mx-auto flex flex-row items-center justify-between">
 		<a href="/">
-			<div class="ml-8 text-lg text-white flex">RBay</div>
+			<div class="ml-8 text-lg text-white flex">okBay</div>
 		</a>
 		<Search />
 		<div class="flex items-center mr-8 hidden md:flex gap-4">
 			{#if $session && $session.userId}
-				<p>{$session.username}-{$session.userId}</p>
+				<p class="text-white font-semibold text-xl">{$session.username}</p>
 				<a href="/dashboard/items/new"><Button>New</Button></a>
 				<a href="/dashboard/items"><Button>Dashboard</Button></a>
 				<Button role="secondary" on:click={onClick}>Logout</Button>

@@ -1,10 +1,14 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { post } from '$lib/fetch';
+	import { FirebaseStorageService } from '$services/firebase/firebaseStorage';
+	import { handleFileUpload } from '$services/firebase/handleFileChange';
 
-	let name = 'Chair';
+	let name = '';
 	let duration = 60;
-	let desc = 'This is a fantastic chair that you would be quite happy with!';
+	let desc = '';
+	let imageUrl = '';
+	let uploadProgress = -1;
 	let data = null;
 	let err = null;
 
@@ -12,12 +16,31 @@
 		[data, err] = await post('/dashboard/items/new', {
 			name,
 			description: desc,
-			duration
+			duration,
+			imageUrl
 		});
 
 		if (!err) {
 			goto(`/items/${data.id}`);
 		}
+	}
+
+	async function handleFile(eventTarget: HTMLInputElement) {
+		await handleFileUpload(
+			eventTarget,
+			(value: number) => {
+				uploadProgress = value;
+			},
+			(value: string) => {
+				imageUrl = value;
+			}
+		);
+	}
+
+	function handleCancelUploadFile() {
+		FirebaseStorageService.deleteFile(imageUrl);
+		imageUrl = '';
+		uploadProgress = -1;
 	}
 </script>
 
@@ -65,6 +88,47 @@
 				<option value={60 * 60 * 24 * 7}>One Week</option>
 			</select>
 		</div>
+
+		<div class="mb-2">
+			<label for="image" class="font-semibold">Choose Your Image</label>
+			<input
+				on:change={(e) => handleFile(e.currentTarget)}
+				type="file"
+				id="image"
+				name="image"
+				accept="image/*"
+				class="boblock w-full border border-gray-200 cursor-pointer rounded-md text-sm file:border-0 file:cursor-pointer file:bg-gray-300 file:mr-4 file:p-2"
+			/>
+		</div>
+
+		{#if uploadProgress > -1}
+			<div class="w-full bg-gray-200 rounded-full h-2.5 mb-2">
+				<div class="bg-sky-700 h-2.5 rounded-full" style="width: {uploadProgress}%" />
+			</div>
+		{/if}
+
+		{#if imageUrl}
+			<div class="flex justify-center flex-col items-start gap-2 mb-2">
+				<img src={imageUrl} alt="ImagePreview" class="object-cover object-center" />
+				<button
+					disabled={imageUrl === ''}
+					aria-label="deleteImage"
+					type="button"
+					class="bg-red-700
+                  text-lg
+                  font-medium
+                  rounded-xl
+                  text-white
+                  px-8
+                  py-3
+                  cursor-pointer
+                "
+					on:click={handleCancelUploadFile}
+				>
+					Cancel
+				</button>
+			</div>
+		{/if}
 
 		{#if err}
 			{err}

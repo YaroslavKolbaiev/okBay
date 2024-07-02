@@ -1,7 +1,6 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import { DateTime } from 'luxon';
 import { createItem } from '$services/queries/items/items';
-import { createImageUrl } from '$services/utils/image-url';
 
 export const post: RequestHandler = async ({ request, locals }) => {
 	const data = await request.json();
@@ -12,7 +11,7 @@ export const post: RequestHandler = async ({ request, locals }) => {
 			description: data.description,
 			createdAt: DateTime.now(),
 			endingAt: DateTime.now().plus({ seconds: data.duration }),
-			imageUrl: createImageUrl(),
+			imageUrl: data.imageUrl,
 			ownerId: locals.session.userId,
 			highestBidUserId: '',
 			price: 0,
@@ -20,8 +19,8 @@ export const post: RequestHandler = async ({ request, locals }) => {
 			likes: 0,
 			bids: 0,
 			status: ''
-		},
-		locals.session.userId
+		}
+		// locals.session.userId
 	);
 
 	return {

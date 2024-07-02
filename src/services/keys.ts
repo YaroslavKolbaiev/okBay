@@ -5,10 +5,10 @@ export const usernameUniqueKey = () => `username:unique`;
 export const userLikesKey = (userId: string) => `user:likes#${userId}`;
 export const userNamesKey = () => `usernames`;
 
-// Items
 export const itemCacheKey = (itemId: string) => `itemcache#${itemId}`;
 export const itemsByViewsKey = () => `items:byviews`;
 export const itemsByEndingKey = () => `items:byending`;
 export const itemsViewsKey = (itemId: string) => `items:views#${itemId}`;
 export const bidHistoryKey = (itemId: string) => `history#${itemId}`;
 export const itemsByPriceKey = () => `items:byprice`;
+export const itemsIndexKey = () => `items:index`;

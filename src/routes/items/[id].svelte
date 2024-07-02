@@ -65,11 +65,16 @@
 	}
 </script>
 
+<svelte:head>
+	<title>okBay | {item ? item.name : 'Loading...'}</title>
+	<meta name="description" content={item ? `Bid on ${item.name} and win!` : 'Item loading...'} />
+</svelte:head>
+
 {#if item}
 	<div>
 		<div class="flex justify-end mb-2" />
 		<div class="flex gap-10">
-			<img alt="" class="w-1/3 p-3 border rounded" src={item.imageUrl} />
+			<img alt="" class="w-1/3 p-3 border rounded object-cover object-center" src={item.imageUrl} />
 			<div class="flex-1 flex flex-col gap-4">
 				<div class="flex items-center justify-between">
 					<div class="text-3xl">
@@ -90,11 +95,7 @@
 				<div class="flex justify-between">
 					<Stat label="High Bid" value={'$' + item.price.toFixed(2)} />
 					<Stat bg="bg-amber-500" label="# Bids" value={item.bids} />
-					<Stat
-						bg="bg-violet-500"
-						label="Ending In"
-						value={endingAt}
-					/>
+					<Stat bg="bg-violet-500" label="Ending In" value={endingAt} />
 				</div>
 
 				{#if userHasHighBid}

@@ -21,9 +21,8 @@ import { itemCacheKey, itemsByViewsKey, itemsViewsKey } from '$services/keys';
 // };
 
 // using lua script
-// This script is useful for atomic operations in Redis,
-// where you want to increment a value and store it in a single operation,
-// ensuring data consistency without the need for separate GET and SET commands.
+// in this case lua script is used to oprimize the performance
+// by reducing the number of round trips to the server
 export const incrementView = async (itemId: string, userId: string) => {
 	return client.incrementView(itemId, userId);
 };

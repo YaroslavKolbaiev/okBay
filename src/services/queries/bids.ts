@@ -2,7 +2,7 @@ import type { CreateBidAttrs, Bid } from '$services/types';
 import { client, withLock } from '$services/redis';
 import { bidHistoryKey, itemCacheKey, itemsByPriceKey } from '$services/keys';
 import { DateTime } from 'luxon';
-import { getItem, itemsByPrice } from './items';
+import { getItem } from './items';
 
 // createBid is used to add a new bid to the bid history
 // redis list is used to store the bid history

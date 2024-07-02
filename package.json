@@ -47,6 +47,7 @@
 		"cookie": "^0.4.2",
 		"default-shell": "^2.2.0",
 		"dotenv": "^16.0.0",
+		"firebase": "^10.12.2",
 		"ioredis": "^4.28.5",
 		"keygrip": "^1.1.0",
 		"lodash": "^4.17.21",

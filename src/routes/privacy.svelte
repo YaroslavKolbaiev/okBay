@@ -77,14 +77,6 @@
 		</li>
 		<li>
 			<p>
-				<strong>Website</strong> refers to RBay, accessible from
-				<a href="https://redis-rbay.com" rel="external nofollow noopener" target="_blank"
-					>https://redis-rbay.com</a
-				>
-			</p>
-		</li>
-		<li>
-			<p>
 				<strong>You</strong> means the individual accessing or using the Service, or the company, or
 				other legal entity on behalf of which such individual is accessing or using the Service, as applicable.
 			</p>
@@ -139,19 +131,6 @@
 			can instruct Your browser to refuse all Cookies or to indicate when a Cookie is being sent. However,
 			if You do not accept Cookies, You may not be able to use some parts of our Service. Unless you
 			have adjusted Your browser setting so that it will refuse Cookies, our Service may use Cookies.
-		</li>
-		<li>
-			<strong>Flash Cookies.</strong> Certain features of our Service may use local stored objects
-			(or Flash Cookies) to collect and store information about Your preferences or Your activity on
-			our Service. Flash Cookies are not managed by the same browser settings as those used for
-			Browser Cookies. For more information on how You can delete Flash Cookies, please read "Where
-			can I change the settings for disabling, or deleting local shared objects?" available at
-			<a
-				href="https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_"
-				rel="external nofollow noopener"
-				target="_blank"
-				>https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_</a
-			>
 		</li>
 		<li>
 			<strong>Web Beacons.</strong> Certain sections of our Service and our emails may contain small
@@ -396,15 +375,4 @@
 		You are advised to review this Privacy Policy periodically for any changes. Changes to this
 		Privacy Policy are effective when they are posted on this page.
 	</p>
-	<h1>Contact Us</h1>
-	<p>If you have any questions about this Privacy Policy, You can contact us:</p>
-	<ul>
-		<li>
-			By visiting this page on our website: <a
-				href="https://redis-rbay.com"
-				rel="external nofollow noopener"
-				target="_blank">https://redis-rbay.com</a
-			>
-		</li>
-	</ul>
 </article>
