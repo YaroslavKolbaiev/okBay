@@ -6,7 +6,7 @@ okBay is an innovative e-commerce web application meticulously designed to revol
 
 ## Technology Stack and Features:
 
-- Svelte: Utilized for its exceptional capability to build reactive and efficient components, Svelte stands at the forefront of okBay's frontend development. This compiler-based framework enables the creation of highly dynamic user interfaces with minimal boilerplate, ensuring a smooth and responsive interaction for users.
+Svelte: Utilized for its exceptional capability to build reactive and efficient components, Svelte stands at the forefront of okBay's frontend development. This compiler-based framework enables the creation of highly dynamic user interfaces with minimal boilerplate, ensuring a smooth and responsive interaction for users.
 
 ## Redis:
 
